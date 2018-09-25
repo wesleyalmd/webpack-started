@@ -1,0 +1,1 @@
+const sample = require('./modules/sample.js');

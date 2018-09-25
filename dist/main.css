@@ -1,0 +1,23 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0; }
+
+body {
+  display: flex;
+  align-items: center;
+  background: #111;
+  font-family: "PT Sans";
+  color: #777; }
+
+div {
+  width: 100%; }
+  div p {
+    text-align: center; }
+  div h1 {
+    text-align: center;
+    font-size: 30vh;
+    color: #ccc;
+    text-shadow: 0 0 3px #000;
+    font-weight: bold; }
