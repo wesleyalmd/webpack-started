@@ -1,6 +1,9 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
+const pathPublic = path.resolve(__dirname, 'public');
+const devHost = 'localhost';
+
 module.exports = {
     entry: [
         './src/js/app.js',
@@ -9,7 +12,15 @@ module.exports = {
 
     output: {
         filename: 'bundle.js',
-        path: path.resolve(__dirname, 'public')
+        path: pathPublic
+    },
+
+    devServer: {
+        contentBase: pathPublic,
+        host: devHost,
+        port: 9000,
+        compress: true,
+        stats: 'minimal'
     },
 
     module: {
@@ -17,13 +28,13 @@ module.exports = {
             test: /\.js$/,
             exclude: /node_modules/,
             use: {
-              loader: 'babel-loader',
-              options: {
-                presets: ['@babel/preset-env']
-              }
+                loader: 'babel-loader',
+                options: {
+                    presets: ['@babel/preset-env']
+                }
             }
-          },
-          {
+        },
+        {
             test: /\.s?css$/,
             use: ExtractTextPlugin.extract({
                 fallback: 'style-loader',
